@@ -1,15 +1,17 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Aug 24 10:36:43 2022
-
-@author: Student
-""" 
+import os
 import pickle   
 import streamlit as st 
 from streamlit_option_menu import option_menu 
 
+# Get the directory where the script is located
+script_dir = os.path.dirname(__file__)
 
-autism_model = pickle.load(open('C:/Users/MICRO/Desktop/AutismApp/saved_model/autism_model.sav','rb')) 
+# Create the path to the model file
+model_path = os.path.join(script_dir, 'autism_model.sav')
+
+# Load the model
+with open(model_path, 'rb') as model_file:
+    autism_model = pickle.load(model_file)
 
 with st.sidebar:
     
